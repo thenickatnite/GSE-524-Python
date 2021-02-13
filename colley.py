@@ -11,6 +11,7 @@ import pandas as pd
 import numpy as np
 x = pd.read_pickle("ncaa.pkl")
 
+#creating a function that generates the Colley Rank, primarily used with College Football teams. This was heavily used before the College football playoff
 def colley_rank(x):
     A = np.zeros((len(x), len(x)))
     B = np.zeros((len(x)))
