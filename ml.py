@@ -41,6 +41,8 @@ X = b.iloc[:, np.arange(0,13)]
 
 Xtrain,Xtest,ytrain,ytest=train_test_split(X,y,train_size=0.75,random_state=0)
 
+# Practice using Machine Learning methods in Python, using the sklearn library
+
 # 1 Linear Regression
 model1=LinearRegression()
 model1.fit(Xtrain,ytrain)
