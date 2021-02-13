@@ -11,6 +11,7 @@ Created on Fri Nov  6 09:39:48 2020
 import pandas as pd
 import re
 
+# some practice writing using real expressions.
 r1 = "<...>"
 #bool(re.search("<...>", "<4gf> is a string"))
 #re.findall("<...>", "<4gf> is a string")
@@ -27,6 +28,8 @@ r4 = "<[^z]*z[^z]*z[^z]*z[^z]*>"
 r5 = "-?[0-9]*\.[0-9]*"
 #re.findall("-?[0-9]*\.[0-9]*", "A decimal number: 00.99")
 
+# function used to take a table written in LaTeX, and transferring it to a Pandas Dataframe. This makes use of real expressions to split the data correctly and
+# get the table we want. 
 def read_lttable(a):
     # initial split
     z = re.sub(r"(.?\.*?\\hline)+", r"\\\\", a)
@@ -49,7 +52,7 @@ def read_lttable(a):
     df.columns = column_names
     return df
 
-
+# Can test on your own by going to the LaTeX table also in this repository.
 f = open("lttable.tex", "r")
 s = f.read()
 f.close()
