@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np
 x = pd.read_pickle("ncaa.pkl")
 
+# another way to do a Colley Ranking system, but this time through using an iterative method. 
 def colley_iter(x, t):
     n = 0
     r = np.array((1+x.wins)/(2+(x.wins+x.losses)))
@@ -19,7 +20,7 @@ def colley_iter(x, t):
     while np.amax(p) >= t:
         n = n+1
         m = np.copy(x.r)
-        for i in range(len(x.team)): # issue is likely in the sum of opponents r 
+        for i in range(len(x.team)): 
             sum_opponents[i] = np.sum(x.r[x.opponents[i]])
         effwins = ((x.wins-x.losses)/2) + sum_opponents
         x.r = (1+effwins)/(2+(x.wins+x.losses))
@@ -31,4 +32,4 @@ def colley_iter(x, t):
            
 colley_iter(x, 0.0001) 
 
-# issue with speed when t is very small.
+
